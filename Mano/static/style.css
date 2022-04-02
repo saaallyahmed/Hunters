@@ -1,0 +1,40 @@
+/* Navbar */
+
+.navbar{
+    font-size: 15px; 
+}
+a.navbar-brand{
+    margin-left: 30px; 
+    padding: inherit; 
+    font-weight: bold; 
+}
+
+
+/*body */
+
+body {
+    position: relative!important;
+    }
+    
+    body:before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    animation: falling-hearts 18s linear infinite;
+    }
+    @keyframes falling-hearts {
+    0% {background-position: 0% 30%;}
+    }
+    
+    @-moz-keyframes falling-hearts {
+    0% {background-position: 0% 30%;}
+    }
+    
+    @-webkit-keyframes falling-hearts {
+    0% {background-position: 0% 30%;}
+    }
