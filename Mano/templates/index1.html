@@ -9,143 +9,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../static/css/style.css">
 </head>
-<style>
-    @keyframes heartfade {
-        0% {
-            opacity : 1;
-        }
-        50% {
-            opacity : 0;
-        }
-    }
-    .heart {
-        z-index : 999;
-        animation : heartfade 6s linear;
-        position : absolute; 
-    }
-    .heart:before,
-    .heart:after {
-        content : "";
-        background-color : #fc2a62;
-        position : absolute;
-        height : 30px;
-        width : 45px;
-        border-radius : 15px 0px 0px 15px;
-    }
 
-    .heart:before {
-        transform : rotate(45deg);
-    }
-
-    .heart:after {
-        left : 10.5px;
-        transform : rotate(135deg);
-    }
-    </style>
-</head>
 <body>
 
-<script>
-    
-    var brd = document.createElement("DIV");
-    document.body.insertBefore(brd, document.getElementById("board"));
-
-    const duration = 3000;
-    const speed = 0.5;
-    const cursorXOffset = 0;
-    const cursorYOffset = -5;
-
-    var hearts = [];
-    
-    function generateHeart(x, y, xBound, xStart, scale)
-    {
-        var heart = document.createElement("DIV");
-        heart.setAttribute('class', 'heart');
-        brd.appendChild(heart);
-        heart.time = duration;
-        heart.x = x;
-        heart.y = y;
-        heart.bound = xBound;
-        heart.direction = xStart;
-        heart.style.left = heart.x + "px";
-        heart.style.top = heart.y + "px";
-        heart.scale = scale;
-        heart.style.transform = "scale(" + scale + "," + scale + ")";
-        if(hearts == null)
-            hearts = [];
-        hearts.push(heart);
-        return heart;
-    }
-
-    var down = false;
-    var event = null;
-
-    document.onmousedown = function(e) {
-        down = true;
-        event = e;
-    }
-
-    document.onmouseup = function(e) {
-        down = false;
-    }
-
-    document.onmousemove = function(e) {
-        event = e;
-    }
-
-    document.ontouchstart = function(e) {
-        down = true;
-        event = e.touches[0];
-    }
-
-    document.ontouchend = function(e) {
-        down = false;
-    }
-
-    document.ontouchmove = function(e) {
-        event = e.touches[0];
-    }
-
-    var before = Date.now();
-    var id = setInterval(frame, 5);
-    var gr = setInterval(check, 100);
-
-    function frame()
-    {
-        var current = Date.now();
-        var deltaTime = current - before;
-        before = current;
-        for(i in hearts)
-        {
-            var heart = hearts[i];
-            heart.time -= deltaTime;
-            if(heart.time > 0)
-            {
-                heart.y -= speed;
-                heart.style.top = heart.y + "px";
-                heart.style.left = heart.x + heart.direction * heart.bound * Math.sin(heart.y * heart.scale / 30) / heart.y * 200 + "px";
-            }
-            else
-            {
-                heart.parentNode.removeChild(heart);
-                hearts.splice(i, 1);
-            }
-        }
-    }
-
-    function check()
-    {
-        if(down)
-        {
-            var start = 1 - Math.round(Math.random()) * 2;
-            var scale = Math.random() * Math.random() * 0.8 + 0.2;
-            var bound = 30 + Math.random() * 20;
-            generateHeart(event.pageX - brd.offsetLeft + cursorXOffset, event.pageY - brd.offsetTop + cursorYOffset, bound, start, scale);
-        }
-    }
-
-</script>
-   
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f5cdf7;">
     <div class="container-fluid"> 
     <a class="navbar-brand font-weight-bold text-uppercase py-3" style="color: azure;background-color: rgb(236, 101, 191); font-size: larger;" href="index.html">OkCupid</a>
@@ -197,25 +63,23 @@
   }
   
   @media only screen and (max-width: 620px) {
-    /* For mobile phones: */
     .menu, .main, .right {
       width: 100%;
     }
   }
   </style>
-  </head>
   <body style="font-family:Verdana;">
   
   <div style="background-color:#f5cdf7;padding:15px;text-align:center;">
     <h1 style="color: rgb(169, 51, 224);">Exploratory Data Analysis -OkCupid Profiles</h1>
-    <p style="font-size: large;"> Can Data Analysis help Identify the Perfect Dating Profile?</p>
+    <p style="font-size: medium;"> Can Data Analysis help Identify the Perfect Dating Profile?</p>
   </div>
-  <br>
+ 
 <div class="container">
 <div class="row">
   <div class="col-md-2">
     <div class="well">
-      <h5>Age</h5>
+      <h5 style="color: blue;">Age</h5>
       <select id="selDataset" onchange="optionChanged(this.value)"></select>
     </div>
     <br>
@@ -227,10 +91,19 @@
     </div>
   </div>
   <div class="col-md-5">
-    <div id="bar"></div>
+    <div id="pie"></div>
   </div>
   <div class="col-md-5">
-    <div id="histogram"></div>
+    <div id="bar"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="table-area" class="">
+        <table id="info-table" class="table table-striped" border="1">
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 </div>
