@@ -15,7 +15,7 @@ function init() {
       });
   
       // Use the first sample from the list to build the initial plots
-    //   var firstSample = sampleNames[0];
+    //   var columnName = sampleNames[0];
     //   buildCharts("age");
     //   buildMetadata(firstSample);
     }
@@ -80,32 +80,33 @@ function init() {
       // Create the layout for the bar chart. 
       var barLayout = {
         title: {
-          text: "<b>Top 10 Bacteria Cultures Found</b>",
+          text: "<b>The Graphs</b>",
       //   y: 0.90
         }
       };
       // Use Plotly to plot the data with the layout. 
       Plotly.newPlot("bar", [barData], barLayout);
     });
-
+    //Creat Sunburst chart
   }
-  var catData = [
-    {
-      "type": "sunburst",
-      "labels": ["Age", "Pets", "Body Type", "Diet", "Sex", "Religion", "signs", "Children", "Status"],
-      "parents": ["", "Age", "Age", "Body Type", "Body Type", "Age", "Age", "signs", "Age" ],
-      "values":  [65, 14, 12, 10, 2, 6, 6, 4, 4],
-      "leaf": {"opacity": 0.4},
-      "marker": {"line": {"width": 2}},
-      "branchvalues": 'total'
-    }];
+  // var catData = [
+  //   {
+  //     "type": "sunburst",
+  //     "labels": ["Age", "Pets", "Body Type", "Diet", "Sex", "Religion", "signs", "Children", "Status"],
+  //     "parents": ["", "Age", "Age", "Body Type", "Body Type", "Age", "Age", "signs", "Age" ],
+  //     "values":  [65, 14, 12, 10, 2, 6, 6, 4, 4],
+  //     "leaf": {"opacity": 0.4},
+  //     "marker": {"line": {"width": 2}},
+  //     "branchvalues": 'total'
+  //   }];
     
-    var layout = {
-      "margin": {"l": 0, "r": 0, "b": 0, "t": 0},
-    };
+  //   var layout = {
+  //     "margin": {"l": 0, "r": 0, "b": 0, "t": 0},
+  //   };
     
     
-    Plotly.newPlot('myDiv', catData, layout, {showSendToCloud: true})
+  //   Plotly.newPlot('myDiv', catData, layout, {showSendToCloud: true})
     
-    myPlot = document.getElementById("myDiv");
+  //   myPlot = document.getElementById("myDiv");
     
+   
