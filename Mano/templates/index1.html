@@ -42,7 +42,7 @@
               Dashboard
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="index1.html">Basic Info</a>
+              <a class="dropdown-item" href="index1.html">Project Overview</a>
               <a class="dropdown-item" href="more_info.html">More Info</a>
             </div>
           </li>
@@ -84,14 +84,21 @@
             <h5 style="color: blue;">Age</h5>
             <select id="selDataset" onchange="optionChanged(this.value)"></select>
           </div>
+          </div>
           <div class="panel panel-primary">
-            <div id="sample-metadata" class="panel-body"></div>
+            <div class="panel-heading">
+              <h3 class="panel-title">Basic Info</h3>
+            </div>
+            <div id="basic-metadata" class="panel-body"></div>
           </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-3">
           <div id="pie"></div>
         </div>
         <br>
+        <div class="col-md-5">
+          <div id="bar2"></div>
+        </div>
         <div class="col-md-5">
           <div id="bar"></div>
         </div>
