@@ -90,15 +90,27 @@ function buildCharts(columnName) {
       var male_status = femaleArray.filter(sampleObj => sampleObj.status == s);
       PANEL.append("h6").text(`${s}: ${male_status.length}`);
     });
-
-    // Pie for gander
+    var ultimateColors = [
+      ['rgb(56, 75, 126)', 'rgb(18, 36, 37)', 'rgb(34, 53, 101)', 'rgb(36, 55, 57)', 'rgb(6, 4, 4)'],
+      ['rgb(177, 127, 38)', 'rgb(205, 152, 36)', 'rgb(99, 79, 37)', 'rgb(129, 180, 179)', 'rgb(124, 103, 37)'],
+      ['rgb(33, 75, 99)', 'rgb(79, 129, 102)', 'rgb(151, 179, 100)', 'rgb(175, 49, 35)', 'rgb(36, 73, 147)'],
+      ['rgb(146, 123, 21)', 'rgb(177, 180, 34)', 'rgb(206, 206, 40)', 'rgb(175, 51, 21)', 'rgb(35, 36, 21)']
+    ];
+    // Pie for gender
     var data = [{
       values: [maleCount, femaleCount],
       labels: ['Male', 'Female'],
-      type: 'pie'
+      textposition: 'inside',
+      hoverinfo: 'labels',
+      hole: .4,
+      type: 'pie',
+      marker: {
+        colors: ultimateColors[2]
+      },
     }];
 
     var layout = {
+      title: 'Gender Distribution',
       height: 400,
       width: 500
     };
@@ -138,7 +150,7 @@ function buildCharts(columnName) {
     ];
 
     var bar_fig = {
-      title: "zodiac Info",
+      title: "Zodiac Info",
       margin: { t: 30, l: 150 }
     };
 
@@ -153,7 +165,7 @@ function buildCharts(columnName) {
     let header = tbl_header.append("th");
     header.text("ID");
     header = tbl_header.append("th");
-    header.text("Gendar");
+    header.text("Gender");
     header = tbl_header.append("th");
     header.text("Status");
     header = tbl_header.append("th");
