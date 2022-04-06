@@ -111,13 +111,14 @@ function buildCharts(columnName) {
 
     var layout = {
       title: 'Gender Distribution',
+      autosize: true,
       height: 400,
-      width: 500
+      width: 400
     };
 
     Plotly.newPlot('pie', data, layout);
 
-    // Bar for sign
+    // Barchart for star signs
     sign_names = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
     sign_counts = [];
 
@@ -145,16 +146,118 @@ function buildCharts(columnName) {
           "(Fish) February 19–March 20"
         ],
         type: "bar",
+        marker: {color: 'rgb(55, 83, 109)'},
         orientation: "h",
       }
     ];
 
     var bar_fig = {
+      autosize: true,
       title: "Zodiac Info",
-      margin: { t: 30, l: 150 }
+      y_axis: {automargin:true}
     };
 
     Plotly.newPlot("bar", bar_info, bar_fig);
+
+    // Histogram for job
+    job_names = [
+    "artistic / musical / writer",
+    "banking / financial / real estate",
+    "clerical / administrative",
+    "computer / hardware / software",
+    "construction / craftsmanship",
+    "education / academia", 
+    "entertainment / media",
+    "executive / management",
+    "hospitality / travel",
+    "law / legal services",
+    "medicine / health",
+    "political / government",
+    "sales / marketing / biz dev", 
+    "science/ tech / engineering", 
+    "student",
+    "transportation",
+    "unemployed",
+    "other",
+    "declined to answer",
+    ];
+    job_counts = [];
+
+    job_names.map((name) => {
+      var match = resultArray.filter(sampleObj => sampleObj.job.includes(name.toLowerCase()));
+      job_counts.push(match.length);
+    });
+    
+    // bar for jobs
+    var bar2_info = [
+      {
+        x: job_names,
+        y: job_counts,
+        // text: [
+        //      "other",
+        //     "Student",
+        //     "transportation",
+        //     "hospitality / travel",
+        //     "student", 
+        //     "entertainment / media",
+        //     "clerical / administrative",
+        //     "construction / craftsmanship",
+        //     "declined to answer",
+        //     "political / government",
+        //     "law / legal services",
+        //     "science/tech/engineering",
+        //     "computer/hardware/software",
+        //     "sales/marketing/biz dev",
+        //     "artistic/musical/writer",
+        //     "medicine/health",
+        //     "education/academia",
+        //     "executive/management",
+        //     "banking/financial/real estate",
+        //     "unemployed"
+        //     ],
+        type: "bar",
+        marker:{
+            color: 'rgb(142,124,195)'
+        },
+      }
+      ];
+
+var bar2_fig = {
+  autosize : true,
+  title: "Job Details",
+  // margin: { t: 30, l: 100 },
+  y_axis: {automargin:true}
+};
+
+Plotly.newPlot("bar2", bar2_info, bar2_fig);
+
+    // var trace2 =[{
+    //   y:job_counts.reverse(),
+    //   x:sign_names.reverse(),
+    //   name: 'Job',
+    //   type:'bar'
+    // }];
+    // var data =[trace1, trace2];
+    // var layout = {
+    //   barmode:'group'
+    // };
+
+        // text: [
+        //   "(Ram) March 21–April 19",
+        //   "(Bull) April 20–May 20",
+        //   "(Twins) May 21–June 21",
+        //   "(Crab) June 22–July 22",
+        //   "(Lion) July 23–August 22",
+        //   "(Virgin) August 23–September 22",
+        //   "(Balance) September 23–October 23",
+        //   "(Scorpion) October 24–November 21",
+        //   "(Archer) November 22-December 21",
+        //   "(Goat) December 22–January 19",
+        //   "(Water Bearer)January 20–February 18",
+        //   "(Fish) February 19–March 20"
+        // ],
+       
+
 
     // Table view
     const tbody = d3.select("tbody");
@@ -164,24 +267,24 @@ function buildCharts(columnName) {
     tbl_header = tbody.append("tr");
     let header = tbl_header.append("th");
     header.text("ID");
-    header = tbl_header.append("th");
-    header.text("Gender");
+    // header = tbl_header.append("th");
+    // header.text("Gender");
     header = tbl_header.append("th");
     header.text("Status");
-    header = tbl_header.append("th");
-    header.text("Body Type");
+    // header = tbl_header.append("th");
+    // header.text("Body Type");
     header = tbl_header.append("th");
     header.text("Height");
-    header = tbl_header.append("th");
-    header.text("Diet");
+    // header = tbl_header.append("th");
+    // header.text("Diet");
     header = tbl_header.append("th");
     header.text("Ethnicity");
     header = tbl_header.append("th");
     header.text("Pets");
     header = tbl_header.append("th");
     header.text("Religion");
-    header = tbl_header.append("th");
-    header.text("Sign");
+    // header = tbl_header.append("th");
+    // header.text("Sign");
     header = tbl_header.append("th");
     header.text("Smokes");
     header = tbl_header.append("th");
@@ -195,24 +298,24 @@ function buildCharts(columnName) {
 
       let cell = tbl.append("td");
       cell.text(row._id.$oid);
-      cell = tbl.append("td");
-      cell.text(row.sex);
+      // cell = tbl.append("td");
+      // cell.text(row.sex);
       cell = tbl.append("td");
       cell.text(row.status);
-      cell = tbl.append("td");
-      cell.text(row.body_type);
+      // cell = tbl.append("td");
+      // cell.text(row.body_type);
       cell = tbl.append("td");
       cell.text(row.height);
-      cell = tbl.append("td");
-      cell.text(row.diet);
+      // cell = tbl.append("td");
+      // cell.text(row.diet);
       cell = tbl.append("td");
       cell.text(row.ethnicity);
       cell = tbl.append("td");
       cell.text(row.pets);
       cell = tbl.append("td");
       cell.text(row.religion);
-      cell = tbl.append("td");
-      cell.text(row.sign);
+      // cell = tbl.append("td");
+      // cell.text(row.sign);
       cell = tbl.append("td");
       cell.text(row.smokes);
       cell = tbl.append("td");
