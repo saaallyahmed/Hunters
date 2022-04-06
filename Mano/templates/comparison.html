@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dating data</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f5cdf7;">
+    <div class="container-fluid"> 
+    <a class="navbar-brand font-weight-bold text-uppercase py-3" style="color: azure;background-color: rgb(236, 101, 191); font-size: larger;" href="index.html">OkCupid</a>
+    
+    <button class="navbar-toggler" 
+            type="button" 
+            data-toggle="collapse" 
+            data-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" 
+            aria-expanded="true" 
+            aria-label="Toggle navigation"
+            max-height="10px" >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto" >
+        <li class="nav-item">
+            <a class="nav-link" href="index3.html" style="color: rgb(52, 123, 231);"> Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="comparison.html" style="color: rgb(52, 123, 231);"> Analysis</a>
+          </li>
+          <li class="nav-item dropdown">
+              <a 
+                class="nav-link dropdown-toggle" 
+                href="index.html" 
+                id="navbarDropdown"
+                role="button" 
+                data-toggle="dropdown" 
+                aria-haspopup="true" 
+                aria-expanded="false"
+                style="color: rgb(52, 123, 231);">
+                Dashboard
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="index1.html">Info Based on Age</a>
+                <a class="dropdown-item" href="index2.html">More Info</a>
+              </div>
+            </li>
+          
+      </ul>
+    </div>
+    </div>
+</nav>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  @media only screen and (max-width: 620px) {
+    .menu, .main, .right {
+      width: 100%;
+    }
+  }
+  </style>
+  <body style="font-family:Verdana;">
+  
+  <div style="background-color:#f5cdf7;padding:15px;text-align:center;">
+    <h1 style="color: rgb(169, 51, 224);">Exploratory Data Analysis -OkCupid Profiles</h1>
+    <p style="font-size: medium;"> Can Data Analysis help Identify the Perfect Dating Profile?</p>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row ">
+      
+      <article class="description-content">
+        <h1 class="description-header" style="background-color: rgb(236, 174, 93); text-align: center;">Analysis of the user profiles </h1>
+       
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-lg-3">
+              <div>
+                <h4 class="description-header" style="color: teal;">Age distribution</h4>
+                <img src="../static/images/age-distribution.png" alt="Age" width="700" height="400" >
+              </div>
+            </div>
+            <br>
+            <div class="col-md-9">
+                <div>
+                  <h4 class="description-header" style="color:rgb(51, 93, 209)">Gender Distribution</h4>
+                  <img src="../static/images/Total Sexes.png" alt="Gender" width="300" height="300">
+                </div>
+              </div>
+              <br>
+            <div class="col-lg-5">
+              <div>
+                <h4 class="description-header" style="color:rgb(51, 93, 209)">Educational Background</h4>
+                <img src="../static/images/education-background.png" alt="Educational Background" width="500" height="500">
+              </div>
+            </div>
+            <br>
+            <div class="col-lg-5">
+              <div>
+                <h4 class="description-header" style="color: rgb(160, 41, 150);">Job Details</h4>
+                <img src="../static/images/current-job.png" alt="Job" width="500" height="500">
+              </div>
+            </div>
+            <br>
+            <div class="col-lg-5">
+              <div>
+                <h4 class="description-header" style="color: green;">Diet Type</h4>
+                <img src="../static/images/diet-distribution.png" alt="Diet" width="500" height="400">
+              </div>
+            </div>
+            <br>
+            <div class="col-lg-5">
+                <div>
+                  <h4 class="description-header" style="color: green;">Body Type</h4>
+                  <img src="../static/images/body-type-distribution.png" alt="Body Type" width="500" height="400">
+                </div>
+              </div>
+          </div>
+        </div>
+        <!-- End of the Visualizations sidebar -->
+    </div>
+  </div>
+  <!-- End of container -->
+  </article>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="../static/js/app.js"></script>
+  <script src="../static/js/app3.js"></script>
+  <script src="../static/js/app4.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+        
+</body>
+
+</html>
