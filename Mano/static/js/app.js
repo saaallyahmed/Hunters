@@ -435,4 +435,4 @@ function buildCharts(columnName) {
 
 
   });
-}
+};

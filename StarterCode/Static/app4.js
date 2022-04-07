@@ -96,8 +96,7 @@ function init() {
   ids: [
     "Body Type", "Education", "Age", "Body Type - Athletic", "Average",
     "Body Type - Fit", "Education - Masters Graduated", "Declined to Answer",
-    "Education - Two-years College","Age - Orientation", "Association",
-    "Australian Rules", "Age - American Football", "Age - Ethnicity",
+    "Education - Two-years College","Age - Orientation", "Age ", "Age - Ethnicity",
     "Jobs", "Income"
   ],
   labels: [
