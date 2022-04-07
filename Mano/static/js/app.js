@@ -90,12 +90,14 @@ function buildCharts(columnName) {
       var male_status = femaleArray.filter(sampleObj => sampleObj.status == s);
       PANEL.append("h6").text(`${s}: ${male_status.length}`);
     });
+
     var ultimateColors = [
       ['rgb(56, 75, 126)', 'rgb(18, 36, 37)', 'rgb(34, 53, 101)', 'rgb(36, 55, 57)', 'rgb(6, 4, 4)'],
       ['rgb(177, 127, 38)', 'rgb(205, 152, 36)', 'rgb(99, 79, 37)', 'rgb(129, 180, 179)', 'rgb(124, 103, 37)'],
       ['rgb(33, 75, 99)', 'rgb(79, 129, 102)', 'rgb(151, 179, 100)', 'rgb(175, 49, 35)', 'rgb(36, 73, 147)'],
       ['rgb(146, 123, 21)', 'rgb(177, 180, 34)', 'rgb(206, 206, 40)', 'rgb(175, 51, 21)', 'rgb(35, 36, 21)']
     ];
+
     // Pie for gender
     var data = [{
       values: [maleCount, femaleCount],
@@ -111,7 +113,6 @@ function buildCharts(columnName) {
 
     var layout = {
       title: 'Gender Distribution',
-      autosize: true,
       height: 400,
       width: 400
     };
@@ -146,7 +147,7 @@ function buildCharts(columnName) {
           "(Fish) February 19–March 20"
         ],
         type: "bar",
-        marker: {color: 'rgb(55, 83, 109)'},
+        marker: { color: 'rgb(55, 83, 109)' },
         orientation: "h",
       }
     ];
@@ -154,82 +155,213 @@ function buildCharts(columnName) {
     var bar_fig = {
       autosize: true,
       title: "Zodiac Info",
-      y_axis: {automargin:true}
+      y_axis: { automargin: true }
     };
 
     Plotly.newPlot("bar", bar_info, bar_fig);
 
     // Histogram for job
     job_names = [
-    "artistic / musical / writer",
-    "banking / financial / real estate",
-    "clerical / administrative",
-    "computer / hardware / software",
-    "construction / craftsmanship",
-    "education / academia", 
-    "entertainment / media",
-    "executive / management",
-    "hospitality / travel",
-    "law / legal services",
-    "medicine / health",
-    "political / government",
-    "sales / marketing / biz dev", 
-    "science/ tech / engineering", 
-    "student",
-    "transportation",
-    "unemployed",
-    "other",
-    "declined to answer",
+      "artistic / musical / writer",
+      "banking / financial / real estate",
+      "clerical / administrative",
+      "computer / hardware / software",
+      "construction / craftsmanship",
+      "education / academia",
+      "entertainment / media",
+      "executive / management",
+      "hospitality / travel",
+      "law / legal services",
+      "medicine / health",
+      "political / government",
+      "sales / marketing / biz dev",
+      "science/ tech / engineering",
+      "student",
+      "transportation",
+      "unemployed",
+      "other",
+      "declined to answer",
     ];
-    job_counts = [];
+
+    male_job_counts = [];
 
     job_names.map((name) => {
-      var match = resultArray.filter(sampleObj => sampleObj.job.includes(name.toLowerCase()));
-      job_counts.push(match.length);
+      var match = maleArray.filter(sampleObj => sampleObj.job.includes(name.toLowerCase()));
+      male_job_counts.push(match.length);
     });
-    
+
+    female_job_counts = [];
+
+    job_names.map((name) => {
+      var match = femaleArray.filter(sampleObj => sampleObj.job.includes(name.toLowerCase()));
+      female_job_counts.push(match.length);
+    });
+
     // bar for jobs
-    var bar2_info = [
-      {
-        x: job_names,
-        y: job_counts,
-        // text: [
-        //      "other",
-        //     "Student",
-        //     "transportation",
-        //     "hospitality / travel",
-        //     "student", 
-        //     "entertainment / media",
-        //     "clerical / administrative",
-        //     "construction / craftsmanship",
-        //     "declined to answer",
-        //     "political / government",
-        //     "law / legal services",
-        //     "science/tech/engineering",
-        //     "computer/hardware/software",
-        //     "sales/marketing/biz dev",
-        //     "artistic/musical/writer",
-        //     "medicine/health",
-        //     "education/academia",
-        //     "executive/management",
-        //     "banking/financial/real estate",
-        //     "unemployed"
-        //     ],
-        type: "bar",
-        marker:{
-            color: 'rgb(142,124,195)'
-        },
-      }
-      ];
+    var trace1 = {
+      x: job_names,
+      y: male_job_counts,
+      name: 'Male',
+      type: 'bar'
+    };
 
-var bar2_fig = {
-  autosize : true,
-  title: "Job Details",
-  // margin: { t: 30, l: 100 },
-  y_axis: {automargin:true}
-};
+    var trace2 = {
+      x: job_names,
+      y: female_job_counts,
+      name: 'Female',
+      type: 'bar'
+    };
+    var data = [trace1, trace2];
+    var layout = {
+      barmode: 'stack'
+    };
 
-Plotly.newPlot("bar2", bar2_info, bar2_fig);
+    Plotly.newPlot('bar2', data, layout);
+
+    //Education chart
+    edu_names = ["Working on college/ university",
+      "Working on High school",
+      "Working on Law school",
+      "Working on Masters program",
+      "Working on Ph.D program",
+      "Working on Space camp",
+      "Working on two-year college"];
+
+    edu_counts = [];
+    edu_names.map((name) => {
+      var match = resultArray.filter(sampleObj => sampleObj.education.includes(name.toLowerCase()));
+      edu_counts.push(match.length);
+    });
+
+    data1 = [{
+      values: edu_counts,
+      labels: edu_names,
+      textposition: 'inside',
+      hoverinfo: 'labels',
+      hole: .4,
+      type: 'pie',
+      marker: {
+        colors: ultimateColors[1]
+      },
+    }];
+
+    var layout1 = {
+      title: "Educational Background",
+      };
+
+    Plotly.newPlot('pie2', data1, layout1);
+
+
+    edu1_names = ["Graduated from college/ university",
+      "Graduated from High school",
+      "Graduated from law school",
+      "Graduated Masters program",
+      "Graduated from Med school",
+      "Graduated Ph.D",
+      "Graduated Space camp"];
+
+    edu1_counts = [];
+    edu1_names.map((name) => {
+      var match = resultArray.filter(sampleObj => sampleObj.education.includes(name.toLowerCase()));
+      edu1_counts.push(match.length);
+    });
+
+    console.log("edu_counts")
+    console.log(edu_counts)
+    data2 = [{
+      values: edu1_counts,
+      labels: edu1_names,
+      textposition: 'inside',
+      hoverinfo: 'labels',
+      hole: .4,
+      type: 'pie',
+      marker: {
+        colors: ultimateColors[2]
+      },
+    }];
+  
+
+    var layout2 = {
+      title: "Educational Background",
+    };
+
+    Plotly.newPlot('pie3', data2, layout2);
+
+    edu2_names = ["Dropped out of college/university",
+      "Dropped out of High school",
+      "Dropped out of Law school",
+      "Dropped out of Masters program",
+      "Dropped out of Med school",
+      "Dropped out of Ph.D program",
+      "Dropped out of space camp",
+      "Dropped out of two-year college",
+      "Declined to answer"];
+
+    edu2_counts = [];
+    edu2_names.map((name) => {
+      var match = resultArray.filter(sampleObj => sampleObj.education.includes(name.toLowerCase()));
+      edu2_counts.push(match.length);
+    });
+
+    data3 = [{
+      values: edu2_counts,
+      labels: edu2_names,
+      textposition: 'inside',
+      hoverinfo: 'labels',
+      hole: .4,
+      type: 'pie',
+      marker: {
+        colors: ultimateColors[3]
+      },
+    }];
+
+    var layout3 = {
+      title: "Educational Background",
+      };
+
+    Plotly.newPlot('pie4', data3, layout3);
+
+    // var bar2_info = [
+    //   {
+    //     x: job_names,
+    //     y: job_counts,
+    //     // text: [
+    //      "other",
+    //     "Student",
+    //     "transportation",
+    //     "hospitality / travel",
+    //     "student", 
+    //     "entertainment / media",
+    //     "clerical / administrative",
+    //     "construction / craftsmanship",
+    //     "declined to answer",
+    //     "political / government",
+    //     "law / legal services",
+    //     "science/tech/engineering",
+    //     "computer/hardware/software",
+    //     "sales/marketing/biz dev",
+    //     "artistic/musical/writer",
+    //     "medicine/health",
+    //     "education/academia",
+    //     "executive/management",
+    //     "banking/financial/real estate",
+    //     "unemployed"
+    //     ],
+    //         type: "bar",
+    //         marker:{
+    //             color: 'rgb(142,124,195)'
+    //         },
+    //       }
+    //       ];
+
+    // var bar2_fig = {
+    //   autosize : true,
+    //   title: "Job Details",
+    //   // margin: { t: 30, l: 100 },
+    //   y_axis: {automargin:true}
+    // };
+
+    // Plotly.newPlot("bar2", bar2_info, bar2_fig);
 
     // var trace2 =[{
     //   y:job_counts.reverse(),
@@ -242,21 +374,21 @@ Plotly.newPlot("bar2", bar2_info, bar2_fig);
     //   barmode:'group'
     // };
 
-        // text: [
-        //   "(Ram) March 21–April 19",
-        //   "(Bull) April 20–May 20",
-        //   "(Twins) May 21–June 21",
-        //   "(Crab) June 22–July 22",
-        //   "(Lion) July 23–August 22",
-        //   "(Virgin) August 23–September 22",
-        //   "(Balance) September 23–October 23",
-        //   "(Scorpion) October 24–November 21",
-        //   "(Archer) November 22-December 21",
-        //   "(Goat) December 22–January 19",
-        //   "(Water Bearer)January 20–February 18",
-        //   "(Fish) February 19–March 20"
-        // ],
-       
+    // text: [
+    //   "(Ram) March 21–April 19",
+    //   "(Bull) April 20–May 20",
+    //   "(Twins) May 21–June 21",
+    //   "(Crab) June 22–July 22",
+    //   "(Lion) July 23–August 22",
+    //   "(Virgin) August 23–September 22",
+    //   "(Balance) September 23–October 23",
+    //   "(Scorpion) October 24–November 21",
+    //   "(Archer) November 22-December 21",
+    //   "(Goat) December 22–January 19",
+    //   "(Water Bearer)January 20–February 18",
+    //   "(Fish) February 19–March 20"
+    // ],
+
 
 
     // Table view
@@ -267,24 +399,14 @@ Plotly.newPlot("bar2", bar2_info, bar2_fig);
     tbl_header = tbody.append("tr");
     let header = tbl_header.append("th");
     header.text("ID");
-    // header = tbl_header.append("th");
-    // header.text("Gender");
-    // header = tbl_header.append("th");
-    // header.text("Status");
-    // header = tbl_header.append("th");
-    // header.text("Body Type");
     header = tbl_header.append("th");
     header.text("Height");
-    // header = tbl_header.append("th");
-    // header.text("Diet");
     header = tbl_header.append("th");
     header.text("Ethnicity");
     header = tbl_header.append("th");
     header.text("Pets");
     header = tbl_header.append("th");
     header.text("Religion");
-    // header = tbl_header.append("th");
-    // header.text("Sign");
     header = tbl_header.append("th");
     header.text("Smokes");
     header = tbl_header.append("th");
@@ -293,34 +415,21 @@ Plotly.newPlot("bar2", bar2_info, bar2_fig);
     resultArray.forEach((row) => {
       // Create tr for each row of the table
       const tbl = tbody.append("tr");
-      // console.log("row")
-      // console.log(row)
-
       let cell = tbl.append("td");
       cell.text(row._id.$oid);
-      // cell = tbl.append("td");
-      // cell.text(row.sex);
-      // cell = tbl.append("td");
-      // cell.text(row.status);
-      // cell = tbl.append("td");
-      // cell.text(row.body_type);
       cell = tbl.append("td");
       cell.text(row.height);
-      // cell = tbl.append("td");
-      // cell.text(row.diet);
       cell = tbl.append("td");
       cell.text(row.ethnicity);
       cell = tbl.append("td");
       cell.text(row.pets);
       cell = tbl.append("td");
       cell.text(row.religion);
-      // cell = tbl.append("td");
-      // cell.text(row.sign);
       cell = tbl.append("td");
       cell.text(row.smokes);
       cell = tbl.append("td");
       cell.text(row.speaks);
-      
+
     });
 
 
