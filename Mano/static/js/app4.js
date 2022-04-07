@@ -94,16 +94,16 @@ function init() {
   var catData = [{
   type: "sunburst",
   ids: [
-    "Body Type", "Education", "Age", "Body Type - Athletic", "Average",
-    "Body Type - Fit", "Education - Masters Graduated", "Declined to Answer",
-    "Education - Two-years College","Age - Orientation", "Association",
+    "Body Type", "Education", "Age", "Body Type - Diet", "Height",
+    "Body Type - Sex", "Education - Sign", "Pets",
+    "Education - Offspring","Age - Orientation", "Association",
     "Australian Rules", "Age - American Football", "Age - Ethnicity",
     "Jobs", "Income"
   ],
   labels: [
-    "Body<br>Type", "Education", "Age", "Athletic", "Average", "Fit",
-    "Masters<br>Graduated", "Declined<br>to Answer", "Two-year<br>College", "Orientation", "Gay",
-    "Bisexual", "Straight", "Ethnicity", "Jobs",
+    "Body<br>Type", "Education", "Age", "Diet", "Height", "Sex",
+    "Sign", "Pets", "offspring", "Orientation", "Drugs",
+    "Drink", "Smokes", "Ethnicity", "Jobs",
     "Income"
   ],
   parents: [
