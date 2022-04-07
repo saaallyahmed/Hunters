@@ -12,39 +12,27 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f5cdf7;">
-    <div class="container-fluid"> 
-    <a class="navbar-brand font-weight-bold text-uppercase py-3" style="color: azure;background-color: rgb(236, 101, 191); font-size: larger;" href="index.html">OkCupid</a>
-    
-    <button class="navbar-toggler" 
-            type="button" 
-            data-toggle="collapse" 
-            data-target="#navbarSupportedContent" 
-            aria-controls="navbarSupportedContent" 
-            aria-expanded="true" 
-            aria-label="Toggle navigation"
-            max-height="10px" >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f5cdf7;">
+    <div class="container-fluid">
+      <a class="navbar-brand font-weight-bold text-uppercase py-3"
+        style="color: azure;background-color: rgb(236, 101, 191); font-size: larger;" href="index.html">OkCupid</a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto" >
-        <li class="nav-item">
-          <a class="nav-link" href="index3.html" style="color: rgb(52, 123, 231);"> Overview</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="comparison.html" style="color: rgb(52, 123, 231);"> Analysis</a>
-        </li>
-        <li class="nav-item dropdown">
-            <a 
-              class="nav-link dropdown-toggle" 
-              href="index.html" 
-              id="navbarDropdown"
-              role="button" 
-              data-toggle="dropdown" 
-              aria-haspopup="true" 
-              aria-expanded="false"
-              style="color: rgb(52, 123, 231);">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation" max-height="10px">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index3.html" style="color: rgb(52, 123, 231);"> Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="comparison.html" style="color: rgb(52, 123, 231);"> Analysis</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="index.html" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: rgb(52, 123, 231);">
               Dashboard
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -52,106 +40,65 @@
               <a class="dropdown-item" href="index2.html">More Info</a>
             </div>
           </li>
-        
-      </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="summary.html" style="color: rgb(52, 123, 231);"> Summary</a>
+          </li>
+
+        </ul>
+      </div>
     </div>
-    </div>
-</nav>
-<style>
-  * {
-    box-sizing: border-box;
-  }
-  
-  @media only screen and (max-width: 620px) {
-    .menu, .main, .right {
-      width: 100%;
+  </nav>
+  <style>
+    * {
+      box-sizing: border-box;
     }
-  }
+
+    @media only screen and (max-width: 620px) {
+
+      .menu,
+      .main,
+      .right {
+        width: 100%;
+      }
+    }
   </style>
+
   <body style="font-family:Verdana;">
-  
-  <div style="background-color:#f5cdf7;padding:15px;text-align:center;">
-    <h1 style="color: rgb(169, 51, 224);">Exploratory Data Analysis -OkCupid Profiles</h1>
-    <p style="font-size: medium;"> Can Data Analysis help Identify the Perfect Dating Profile?</p>
-  </div>
-  <br>
-  <div id='myDiv' align="center" width="700" height="700"><sunburst>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12">
 
-    <!-- <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Test Subject ID No.:</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)">
-            <option value="age">Age</option>
-
-            <option value="body_type">Body Type</option>
-            <option value="a little extra"> Little Extra</option>
-            <option value="average"> Average</option>
-            <option value="thin"> Thin</option>
-            <option value="fit"> Fit</option>
-            <option value="athletic"> Athletic</option>
-            <option value="curvy"> Curvy</option>
-            <option value="skinny"> Skinny</option>
-            <option value="overweight"> OverWeight</option>
-            <option value="diet">Diet</option>
-            <option value="anything">Anything</option>
-            <option value="declined to answer">Declined To Answer</option>
-            <option value="vegan">Vegan</option>
-            <option value="vegetarian">Vegetarian</option>
-            <option value="mostly halal">Halal</option>
-            <option value="mostlly kosher">Kosher</option>
-            <option value="sign">signs</option>
-            <option value="gemini">Gemini</option>
-            <option value="cancer">Cancer</option>
-            <option value="pisces but it doesn't matter">Doesn't Matter</option>
-            <option value="pisces">Pisces</option>
-            <option value="aquarius">Aquarius</option>
-            <option value="taurus">Taurus</option>
-            <option value="virgo">Virgo</option>
-            <option value="sagittarius">Sagittarius</option>
-            <option value="libra">Libra</option>
-            <option value="leo">Leo</option>
-            <option value="scorpio">Scorpio</option>
-            <option value="aries">Aries</option>
-            <option value="hispanic / latin, white">Hispanic / Latin, White</option>
-            <option value="black">Black</option>
-
-          </select>
-        </div> -->
-        <!-- <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Demographic Info</h3>
-          </div>
-          <div id="sample-metadata" class="panel-body"></div>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div id="bar"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
-      </div>
+    <div style="background-color:#f5cdf7;padding:15px;text-align:center;">
+      <h1 style="color: rgb(169, 51, 224);">Exploratory Data Analysis -OkCupid Profiles</h1>
+      <p style="font-size: medium;"> Can Data Analysis help Identify the Perfect Dating Profile?</p>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="bubble"></div>
-      </div>
-    </div> -->
-  </div>
-  
+    <br>
+    <p style="text-align: center;">The following chart gives the overview of the variables found in the dataset.</p>
+    <div id='myDiv' align="center" width="1200" height="1200">
+      <sunburst>
+        <div class="container-fluid text-center">
+          <div class="row">
+            <div class="col-md-12">
+            </div>
+          </div>
+        </div>
+      </sunburst>
+    </div>
+             
+
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="../static/js/app4.js"></script>
   <script src="//unpkg.com/sunburst-chart"></script>
   <script src='https://cdn.plot.ly/plotly-2.9.0.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"></script>
 
-</body>
+  </body>
 
 </html>
