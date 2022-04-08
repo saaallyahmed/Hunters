@@ -3,8 +3,12 @@ function init() {
   var selector = d3.select("#selDataset");
 
   // Use the list of sample names to populate the select options
-  d3.json("./data/data.json").then((data) => {
-      console.log(data)
+  data = d3.json("../static/data/data.json").then((data) => {
+      let tableData = data.map(function(data){
+
+        return data;
+      })
+      return tableData;
     //  var columnName = data.id;
 
     //  columnName.forEach((column) => {
@@ -13,11 +17,14 @@ function init() {
     //      .text(column)
     //      .property("value", column);
     });
+    console.log(data);
+    //buildTabulatorTable(data)
 
     // Use the first sample from the list to build the initial plots
   //   var columnName = sampleNames[0];
-  //   buildCharts("age");
+  buildCharts("age");
   //   buildMetadata(firstSample);
+  
   }
 //     );
 //   }
@@ -36,7 +43,7 @@ function optionChanged(columnName) {
 
 // Demographics Panel 
 function buildMetadata(sample) {
-  d3.json("./data/data.json").then((data) => {
+  d3.json("../static/data/data.json").then((data) => {
     var metadata = data.metadata;
     // Filter the data for the object with the desired sample number
     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
@@ -51,10 +58,11 @@ function buildMetadata(sample) {
     });
   });
 }
+    
 
 function buildCharts(columnName){
   //build a bar chart
-  d3.json("./data/data.json").then((data) => {
+  d3.json("../static/data/data.json").then((data) => {
   
     //var samples = data.samples;
     console.log(columnName);
@@ -87,26 +95,16 @@ function buildCharts(columnName){
     // Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", [barData], barLayout);
   });
-  //Creat Sunburst chart
 }
-// var catData = [
-//   {
-//     "type": "sunburst",
-//     "labels": ["Age", "Pets", "Body Type", "Diet", "Sex", "Religion", "signs", "Children", "Status"],
-//     "parents": ["", "Age", "Age", "Body Type", "Body Type", "Age", "Age", "signs", "Age" ],
-//     "values":  [65, 14, 12, 10, 2, 6, 6, 4, 4],
-//     "leaf": {"opacity": 0.4},
-//     "marker": {"line": {"width": 2}},
-//     "branchvalues": 'total'
-//   }];
-  
-//   var layout = {
-//     "margin": {"l": 0, "r": 0, "b": 0, "t": 0},
-//   };
-  
-  
-//   Plotly.newPlot('myDiv', catData, layout, {showSendToCloud: true})
-  
-//   myPlot = document.getElementById("myDiv");
-  
- 
+
+//tabulator table code
+
+function buildTabulatorTable(tableData){
+  // console.log(tableData);
+  // var table = new buildTabulatorTable('#tabulator_table',{
+  //   data:tableData,
+  //   autoColumns:true,
+  //   layout:"fitColumns",
+  //   paginationSize:20,
+  // });
+ }
