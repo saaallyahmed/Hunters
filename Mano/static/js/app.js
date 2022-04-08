@@ -213,6 +213,7 @@ function buildCharts(columnName) {
     };
     var data = [trace1, trace2];
     var layout = {
+      title:"Job Description",
       barmode: 'stack'
     };
 
@@ -246,7 +247,7 @@ function buildCharts(columnName) {
     }];
 
     var layout1 = {
-      title: "Educational Background",
+      title: "Educational Background (Studying)",
       };
 
     Plotly.newPlot('pie2', data1, layout1);
@@ -282,7 +283,7 @@ function buildCharts(columnName) {
   
 
     var layout2 = {
-      title: "Educational Background",
+      title: "Educational Background (Graduated)",
     };
 
     Plotly.newPlot('pie3', data2, layout2);
@@ -316,7 +317,7 @@ function buildCharts(columnName) {
     }];
 
     var layout3 = {
-      title: "Educational Background",
+      title: "Educational Background (Dropped out)",
       };
 
     Plotly.newPlot('pie4', data3, layout3);
@@ -434,4 +435,4 @@ function buildCharts(columnName) {
 
 
   });
-}
+};
