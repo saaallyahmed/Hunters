@@ -100,11 +100,11 @@ function buildCharts(columnName){
 //tabulator table code
 
 function buildTabulatorTable(tableData){
-  console.log(tableData);
-//   var table = new buildTabulatorTable('#tabulator_table',{
-//     data:tableData,
-//     autoColumns:true,
-//     layout:"fitColumns",
-//     paginationSize:20,
-//   });
+  // console.log(tableData);
+  // var table = new buildTabulatorTable('#tabulator_table',{
+  //   data:tableData,
+  //   autoColumns:true,
+  //   layout:"fitColumns",
+  //   paginationSize:20,
+  // });
  }
