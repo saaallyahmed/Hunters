@@ -7,8 +7,11 @@ Members:
 2.	Samuel Park 
 3.	Ruby Nguyen 
 4.	Manochitra Kumar
+
+
 Project Title: 
 “OkCupid Dating Profiles- Exploratory Data Analysis and Visualization”
+
 Project Scope: 
 OkCupid is a U.S.-based, online dating website and application. It is also one of the top 10 dating apps. In general, the OkCupid data reflects many trends in the general population, such as drinking habit and income disparities. In this project, we want to explore the demographics, religious affiliations, education, and individual behaviors of the users.
 
@@ -23,10 +26,14 @@ Research Questions:
 
 Dataset: 
 https://github.com/rudeboybert/JSE_OkCupid
+
 Project Details:
 •	We cleaned the Data using Python
 •	Used Seaborn library to Print colorful Graphs.
-•	We used Mongo bd.
+•	We used Mongo db.
 •	We Used Flask.
-•	We Used Sunburst Graph.
-•	We used new JavaScript liberary. 
+•	We made an interactive dashboard using javascript plotly library
+•	We have also used amcharts (a new javasciprt library) and sunburst charts.
+
+
+
