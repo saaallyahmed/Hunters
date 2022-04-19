@@ -1,6 +1,5 @@
 # Hunters
 Project 3 
-Project-3 Proposal (Group 5)
 
 Members: 
 1.	Sally Ahmed
@@ -10,7 +9,8 @@ Members:
 
 
 Project Title: 
-“OkCupid Dating Profiles- Exploratory Data Analysis and Visualization”
+
+“OkCupid Dating Profiles- Exploratory Data Analysis and Visualization (Can data analysis help us identify a perfect dating profile?)”
 
 Project Scope: 
 OkCupid is a U.S.-based, online dating website and application. It is also one of the top 10 dating apps. In general, the OkCupid data reflects many trends in the general population, such as drinking habit and income disparities. In this project, we want to explore the demographics, religious affiliations, education, and individual behaviors of the users.
@@ -28,11 +28,10 @@ Dataset:
 https://github.com/rudeboybert/JSE_OkCupid
 
 Project Details:
-•	We cleaned the Data using Python
+•	We cleaned the Data using Python-Pandas.
 •	Used Seaborn library to Print colorful Graphs.
-•	We used Mongo db.
-•	We Used Flask.
-•	We made an interactive dashboard using javascript plotly library
+•	We used Mongo db and Flask.
+•	We made an interactive dashboard using javascript plotly library.
 •	We have also used amcharts (a new javasciprt library) and sunburst charts.
 
 
