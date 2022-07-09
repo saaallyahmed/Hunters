@@ -1,12 +1,4 @@
-# Hunters
-Project 3 
-
-Members: 
-1.	Sally Ahmed
-2.	Samuel Park 
-3.	Ruby Nguyen 
-4.	Manochitra Kumar
-
+OkCupid JavaScript - Python - MongoDB - Flask 
 
 Project Title: 
 
